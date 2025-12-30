@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+
+    --primary: 220 20% 20%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 8 76% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 8 76% 56%;
+
+    --radius: 0.75rem;
+
+    /* CRM specific colors */
+    --sidebar-bg: 0 0% 90%;
+    --sidebar-active: 0 0% 82%;
+    --status-active: 142 71% 45%;
+    --status-inactive: 0 84% 60%;
+    --employee-id: 8 76% 56%;
+    --email-link: 210 100% 50%;
+
+    --sidebar-background: 0 0% 90%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 220 20% 20%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 82%;
+    --sidebar-accent-foreground: 220 20% 20%;
+    --sidebar-border: 220 13% 85%;
+    --sidebar-ring: 8 76% 56%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 8 76% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 25%;
+    --input: 220 15% 25%;
+    --ring: 8 76% 56%;
+
+    --sidebar-bg: 220 20% 12%;
+    --sidebar-active: 220 15% 18%;
+    --sidebar-background: 220 20% 12%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 8 76% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 8 76% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .sidebar-link {
+    @apply flex items-center px-4 py-3 text-foreground/80 hover:bg-sidebar-accent transition-colors rounded-r-lg;
+  }
+
+  .sidebar-link-active {
+    @apply bg-sidebar-accent text-foreground font-medium;
+  }
+
+  .kpi-card {
+    @apply bg-card rounded-xl border border-border p-5 flex items-center gap-4;
+  }
+
+  .data-table {
+    @apply w-full border border-border rounded-xl overflow-hidden;
+  }
+
+  .data-table th {
+    @apply text-left text-sm font-medium text-muted-foreground px-4 py-3 bg-muted/30;
+  }
+
+  .data-table td {
+    @apply px-4 py-4 text-sm border-t border-border;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 text-sm;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-active .status-dot {
+    @apply bg-[hsl(var(--status-active))];
+  }
+
+  .status-inactive .status-dot {
+    @apply bg-[hsl(var(--status-inactive))];
+  }
+
+  .crm-button {
+    @apply px-5 py-2.5 rounded-full bg-secondary text-foreground font-medium text-sm hover:bg-secondary/80 transition-colors;
+  }
+
+  .crm-button-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .crm-input {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-ring transition-colors;
+  }
+
+  .crm-select {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-ring transition-colors appearance-none cursor-pointer;
+  }
+
+  .employee-id {
+    @apply text-[hsl(var(--employee-id))] font-medium;
+  }
+
+  .email-link {
+    @apply text-[hsl(var(--email-link))] hover:underline;
+  }
+}
